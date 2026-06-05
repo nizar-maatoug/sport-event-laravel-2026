@@ -26,9 +26,7 @@ class EventSportifController extends Controller
 
     public function show($id)
     {
-        $events = $this->getEvents();
-
-        $event = collect($events)->firstWhere('id', $id);
+        $event = EventSportif::findOrFail($id);
 
         return view('events.show', compact('event'));
     }
@@ -40,13 +38,19 @@ class EventSportifController extends Controller
 
     public function store(Request $request)
     {
-        // simulation seulement
-        return redirect('/events')->with('success', 'Event ajouté (non persistant)');
+        EventSportif::create([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+
+        return redirect('/events')->with('success', 'Event ajouté');
     }
 
     public function destroy($id)
     {
-        // simulation seulement
-        return redirect('/events')->with('success', 'Event supprimé (non persistant)');
+        $event = EventSportif::findOrFail($id);
+        $event->delete();
+
+        return redirect('/events')->with('success', 'Event supprimé');
     }
 }
