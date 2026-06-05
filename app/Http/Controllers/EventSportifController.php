@@ -8,20 +8,12 @@ use Illuminate\Http\Request;
 
 class EventSportifController extends Controller
 {
-    private function getEvents()
-    {
-        // Simuler une source de données (base de données, API, etc.)
-        return [
-            new EventSportif(1, "Tournoi Karaté", "Compétition nationale"),
-            new EventSportif(2, "Championnat Boxe", "Finale régionale"),
-            new EventSportif(3, "Open Judo", "Tournoi international"),
-        ];
-    }
+
 
     // retourne une liste de tous les événements sportifs
     public function index()
     {
-        $events = $this->getEvents();
+        $events = EventSportif::all();
         $data= [
             // méta-informations pour la page
             'title' => 'Liste des événements sportifs',

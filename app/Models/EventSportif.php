@@ -5,16 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-class EventSportif
+class EventSportif extends Model
 {
-    public $id;
-    public $name;
-    public $description;
-
-    public function __construct($id, $name, $description)
-    {
-        $this->id = $id;
-        $this->name = $name;
-        $this->description = $description;
-    }
+    protected $fillable = [
+        "name",
+        "description",
+    ];
 }
