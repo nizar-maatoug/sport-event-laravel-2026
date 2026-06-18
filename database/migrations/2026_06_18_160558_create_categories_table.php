@@ -14,9 +14,21 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
 
+            $table->enum('name', [
+                'Poucet',
+                'Poussin',
+                'Benjamin',
+                'Minime',
+                'Cadet',
+                'Junior',
+                'Senior'
+            ]);
+
+            $table->enum('gender', ['M', 'F']);
+            $table->string('weight', 60);
 
 
-        $table->timestamps();
+            $table->timestamps();
         });
     }
 

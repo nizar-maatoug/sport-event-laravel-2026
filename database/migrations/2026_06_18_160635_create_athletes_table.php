@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('athletes', function (Blueprint $table) {
             $table->id();
+
+            $table->string('first_name', 100);
+            $table->string('last_name', 100);
+            $table->date('birth_date');
+            $table->enum('gender', ['M', 'F']);
+
             $table->timestamps();
         });
     }
