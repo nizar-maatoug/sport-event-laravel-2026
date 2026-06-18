@@ -31,6 +31,10 @@ class EventSportifController extends Controller
         // Affiche la vue avec les événements
         return view('events.index', $data);
     }
+    public function create()
+    {
+        return view('events.create');
+    }
 
     public function show($id)
     {
@@ -41,10 +45,7 @@ class EventSportifController extends Controller
         return view('events.show', compact('event'));
     }
 
-    public function create()
-    {
-        return view('events.create');
-    }
+
 
     public function store(Request $request)
     {
