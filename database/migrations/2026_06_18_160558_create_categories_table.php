@@ -27,6 +27,8 @@ return new class extends Migration
             $table->enum('gender', ['M', 'F']);
             $table->string('weight', 60);
 
+            $table->foreignId('event_sportif_id')->constrained()->cascadeOnDelete();
+
 
             $table->timestamps();
         });

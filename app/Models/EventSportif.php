@@ -11,4 +11,20 @@ class EventSportif extends Model
         "name",
         "description",
     ];
+
+    public function organizer(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function categories(){
+        return $this->hasMany(Categorie::class);
+    }
+
+    public function athletes(){
+        return $this->hasManyThrough(Athlete::class,Categorie::class);
+    }
+
+    public function comments(){
+        return $this->morphMany(Comment::class,"commentable");
+    }
 }

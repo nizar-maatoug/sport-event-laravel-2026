@@ -9,4 +9,15 @@ class Athlete extends Model
 {
     /** @use HasFactory<\Database\Factories\AthleteFactory> */
     use HasFactory;
+    public function categorie(){
+        return $this->belongsTo(Categorie::class);
+    }
+
+    public function team(){
+        return $this->belongsTo(Team::class);
+    }
+
+    public function comments(){
+        return $this->morphMany(Comment::class,"commentable");
+    }
 }

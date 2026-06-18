@@ -9,4 +9,12 @@ class Categorie extends Model
 {
     /** @use HasFactory<\Database\Factories\CategorieFactory> */
     use HasFactory;
+
+    public function event_sportif(){
+        $this->belongsTo(EventSportif::class);
+    }
+
+    public function athletes(){
+        return $this->hasMany(Athlete::class);
+    }
 }

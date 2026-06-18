@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('last_name', 100);
             $table->date('birth_date');
             $table->enum('gender', ['M', 'F']);
+            $table->foreignId("categorie_id")->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId("team_id")->nullable()->constrained()->nullOnDelete();
 
             $table->timestamps();
         });
