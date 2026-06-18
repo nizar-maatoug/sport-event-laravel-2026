@@ -40,7 +40,8 @@ class DatabaseSeeder extends Seeder
 
                 // Athletes in category
                 Athlete::factory(4)->create([
-                    'categorie_id' => $category->id
+                    'categorie_id' => $category->id,
+                    'gender' => $category->gender,
                 ]);
 
             });
