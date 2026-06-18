@@ -17,8 +17,20 @@ class CategorieFactory extends Factory
      */
     public function definition(): array
     {
+
         return [
-            //
+            'name' => fake()->randomElement([
+                'Poucet',
+                'Poussin',
+                'Benjamin',
+                'Minime',
+                'Cadet',
+                'Junior',
+                'Senior'
+            ]),
+            'gender' => fake()->randomElement(['M', 'F']),
+            'weight' => fake()->numberBetween(20, 120),
         ];
+
     }
 }

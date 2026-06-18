@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Comment;
+use App\Models\EventSportif;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Comment>
+ * @extends Factory<EventSportif>
  */
-class CommentFactory extends Factory
+class EventSportifFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,8 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            'content' => fake()->sentence(),
+            'name' => fake()->words(3, true),
+            'description' => fake()->optional()->paragraph(), // nullable
         ];
     }
 }
