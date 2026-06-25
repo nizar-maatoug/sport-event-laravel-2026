@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class EventSportif extends Model
 {
     /** @use HasFactory<\Database\Factories\TeamFactory> */
-    use HasFactory;
+    use HasFactory;//cette classe modele possède un factory EventSportifFactory ::factory(): c'est une extension de la classe EventSportif
 
     protected $fillable = [
         "name",
