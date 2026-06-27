@@ -7,6 +7,7 @@ use App\Http\Requests\StoreEventSportifRequest;
 use App\Http\Requests\UpdateEventSportifRequest;
 use App\Http\Resources\EventSportifResource;
 use App\Models\EventSportif;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class EventSportifController extends Controller
@@ -24,8 +25,15 @@ class EventSportifController extends Controller
      */
     public function store(StoreEventSportifRequest $request)
     {
+        $data = $request->validated();
+        $data['user_id']=1;//Auth user
 
-        $event = EventSportif::create($request->validated());
+
+
+        $event = EventSportif::create($data);
+
+
+
 
          return response()->json([
             'message' => 'Event created successfully',
