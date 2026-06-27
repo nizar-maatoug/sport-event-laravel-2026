@@ -14,6 +14,7 @@ class EventSportif extends Model
     protected $fillable = [
         "name",
         "description",
+        "user_id"
     ];
 
     public function organizer(){
